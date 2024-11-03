@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Game - Basic Version</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).keydown(function(event) {
+                const keyCode = event.which; // Get key code
+                if (keyCode >= 65 && keyCode <= 90) { // A-Z
+                    generateBubble(String.fromCharCode(keyCode));
+                }
+            });
+
+            function generateBubble(letter) {
+                var width = screen.width - 100;
+                var height = screen.height - 200;
+                var x = Math.random() * width;
+                var y = Math.random() * height;
+
+                var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+                var bubble = $('<div class="bubble"></div>')
+                    .text(letter)
+                    .css({
+                        left: x + 'px',
+                        top: y + 'px',
+                        backgroundColor: randomColor,
+                        width: '50px',
+                        height: '50px',
+                        color: '#fff',
+                    });
+
+                $('body').append(bubble);
+                setTimeout(function() {
+                    bubble.remove();
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
