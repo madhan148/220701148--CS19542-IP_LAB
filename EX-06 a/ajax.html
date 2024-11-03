@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Retrieve Text File - Variation 1</title>
+</head>
+<body>
+    <h2>Load Text File with AJAX (Variation 1)</h2>
+    <button onclick="loadTextFile()">Load Text</button>
+    <div id="output"></div>
+
+    <script>
+        function loadTextFile() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "data.txt", true);
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("output").innerHTML = xhr.responseText;
+                }
+            };
+            
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
