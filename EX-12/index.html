@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular 9 SPA</title>
+  <!-- Angular and Angular Route -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+  <!-- App Script -->
+  <script src="app.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #007bff;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 1em;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      padding: 2em;
+      background: white;
+      margin: 2em auto;
+      width: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      display: block;
+      width: 100%;
+      padding: 0.5em;
+      margin: 0.5em 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 0.7em 1.5em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body ng-app="myApp">
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#!/">Login</a>
+    <a href="#!/register">Register</a>
+  </nav>
+
+  <!-- Dynamic Content -->
+  <div class="content" ng-view></div>
+
+</body>
+</html>
